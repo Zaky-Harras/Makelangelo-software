@@ -1,0 +1,26 @@
+1- On veut trouver les classes non couvertes par des tests.
+	On remarque que jacoco est déjà mentionné dans le maven.
+	On va utiliser ca pour couvrir les parties du code qui ne sont pas couverts par des tests.
+	1.1- Installation mvn sur machine pour pouvoir exécuter jacoco
+	1.2- Exécution de jacoco -> "mvn clean test jacoco:report -e -X"
+	1.3- Rapport index.html créé dans "target/site/jacoco/index.html"
+	1.4- Ouverture du rapport sur browser
+	1.5- Analyse rapport : 
+		Missed Instructions : Indique le nombre d’instructions (lignes de code) non couvertes par les tests.
+	     	Coverage (%) : Montre le pourcentage de couverture des instructions. 
+				Plus le pourcentage est élevé, mieux c'est.
+             	Missed Branches : Représente les branches de conditions non couvertes par les tests (if, else, etc.).
+	     	Missed Lines, Methods, and Classes : Montre combien de lignes, méthodes, ou classes spécifiques ne sont pas couvertes par les tests.
+	     	Couleurs : Dans le rapport HTML, les lignes de code couvertes apparaissent généralement en vert, tandis que celles non couvertes apparaissent en rouge.
+	1.6- Résultats exemple com.marginallyclever.communications:
+		On peut appercevoir 3 classes :
+			NetworkSession : Cette classe a une couverture très faible (0%), ce qui signifie que les tests actuels n'exécutent aucune des instructions de cette classe. 
+				Elle pourrait nécessiter des tests supplémentaires pour vérifier son comportement.
+			Configuration : Cette classe est également à 0% de couverture, indiquant que ses méthodes ne sont pas testées.
+			NetworkSessionEvent : Cette classe est bien couverte avec 100% de couverture, ce qui signifie que les tests couvrent toutes ses instructions.
+
+2- Faire des classes de tests
+***RAPPEL : en essayant de faire le test pour NetworkSession, j'ai implémenté Mockito dans pom.xml à la ligne 548***
+	2.1- Par exemple, test pour NetworkSession: créer classe NetworkSession_Test dans "src/test/java/com/marginallyclever/communications"
+	2.2- Création de la classe ImplTestNetSesh implémentant les fonctions de NetworkSession pour que nous puissions les tester.
+	2.4- exécution de NetworkSession_Test uniquement : "mvn -Dtest=NetworkSession_Test test"
