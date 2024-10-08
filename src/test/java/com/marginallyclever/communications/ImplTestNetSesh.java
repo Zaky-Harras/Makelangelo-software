@@ -21,7 +21,7 @@ public class ImplTestNetSesh extends NetworkSession {
 
     @Override
     public void sendMessage(String msg) throws Exception {
-        // Logique fictive pour le test, par exemple : println(msg);
+        // Logique fictive
         System.out.println("Message sent: " + msg);
     }
 }

@@ -18,7 +18,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class ImageConverter_Test {
-    private ImplTestImgConv imageConverter; // Remplace par la sous-classe concrète
+    private ImplTestImgConv imageConverter;
     private File inputImage;
     private File outputImage;
     private Paper paper;
@@ -30,14 +30,14 @@ public class ImageConverter_Test {
     public void setUp() {
         imageConverter = new ImplTestImgConv();
         //JSP quelle image prendre
-        //inputImage = new File("src/test/resources/test.png");
+        inputImage = new File("src/test/resources/test.png");
         outputImage = new File("src/test/resources/output.gcode");
         paper = new Paper(); // Assure-toi que le constructeur est correct, ou ajuste avec des paramètres si nécessaire
         //img = new TransformedImage(inputImage);
-        // Charger le fichier image en tant que BufferedImage
+        // Charger le fichier image en tant que BufferedImage sinon ca marche pas
         try {
             BufferedImage bufferedImage = ImageIO.read(inputImage);
-            img = new TransformedImage(bufferedImage);  // Utilise BufferedImage pour créer TransformedImage
+            img = new TransformedImage(bufferedImage);
         } catch (IOException e) {
             e.printStackTrace();
             fail("Impossible de lire l'image d'entrée : " + e.getMessage());
@@ -51,13 +51,13 @@ public class ImageConverter_Test {
     @Test
     public void testStartAndStopConversion() {
         try {
-            // Démarre le processus de conversion
+            // On débute le processus de conversion
             imageConverter.start(paper, img);
 
-            // Arrête le processus de conversion
+            // On stop le processus de conversion
             imageConverter.stop();
 
-            // Teste si on a output après l'arrêt
+            // On test si on a output après l'arrêt
             assertTrue("La conversion doit être active après le démarrage", outputImage.exists());
 
         } catch (Exception e) {
@@ -68,11 +68,10 @@ public class ImageConverter_Test {
     @Test
     public void testRender() {
         try {
-            // Appelle la méthode render pour vérifier le traitement de l'image
+            // Appel la méthode render
             imageConverter.render(gl2);
 
-            // Selon l'implémentation de render(), tu peux ajouter des assertions.
-            // Par exemple, vérifie si le fichier de sortie est généré après le rendu.
+            // On vérifie si sortie est générée
             assertTrue("Le fichier de sortie doit exister après le rendu", outputImage.exists());
 
         } catch (Exception e) {
@@ -85,13 +84,13 @@ public class ImageConverter_Test {
         try {
             // On choisit des valeurs :
             double x1 = 0, y1 = 0, x2 = 100, y2 = 100;
-            double stepSize = 1.0;        // Taille de pas pour la conversion
-            double channelCutoff = 0.5;   // Seuil pour les canaux
-            TransformedImage image = img; // Utiliser l'image déjà initialisée
-            // Appelle convertAlongLine et passe les paramètres nécessaires (ex : coordonnées)
+            double stepSize = 1.0;
+            double channelCutoff = 0.5;
+            TransformedImage image = img;
+            // Appelle convertAlongLine et passe les paramètres nécessaires
             imageConverter.convertAlongLine(x1, y1, x2, y2, stepSize, channelCutoff, image); // Exemple avec des valeurs
 
-            // Ici, vérifie l'état ou le contenu si convertAlongLine modifie le fichier de sortie
+            // On vérifie application de la transformation
             assertTrue("Le fichier de sortie doit être modifié par convertAlongLine", outputImage.exists());
 
         } catch (Exception e) {
@@ -102,29 +101,29 @@ public class ImageConverter_Test {
     @Test
     public void testConversionEventHandling() {
         try {
-            // Teste l'ajout et le retrait d'un listener d'événement
+            // On teste l'ajout et le retrait d'un listener d'événement
             ImageConverterListener listener = new ImageConverterListener() {
                 @Override
                 public void onRestart(ImageConverter panel) {
+                    //Ajouter des asserts
 
                 }
 
                 @Override
                 public void onConvertFinished(Turtle turtle) {
+                    //Ajouter des asserts
 
                 }
             };
 
             // Ajoute un listener
             imageConverter.addImageConverterListener(listener);
-
-            // Vérifie si l'ajout a fonctionné
-            // Selon l'implémentation, tu pourrais vérifier si listener est dans la liste des listeners
+            //Vérifier avec un assert
 
             // Retire le listener
             imageConverter.removeImageConverterListener(listener);
+            //Vérifier avec un assert
 
-            // Selon l'implémentation, tu pourrais vérifier si le listener a bien été retiré
 
         } catch (Exception e) {
             fail("Une exception ne doit pas être lancée : " + e.getMessage());
@@ -133,7 +132,7 @@ public class ImageConverter_Test {
 
     @After
     public void tearDown() {
-        // Nettoyage après chaque test
+        // On doit cleanup après les tests
         if (outputImage.exists()) {
             outputImage.delete();
         }
