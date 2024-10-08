@@ -71,7 +71,7 @@ public class TransformedImage {
 		return sourceImage;
 	}
 
-	private int getTransformedX(double x) {
+	public int getTransformedX(double x) {
 		return (int) ((x / scaleX) - translateX);
 	}
 
@@ -224,5 +224,13 @@ public class TransformedImage {
 
 	public void setRGB(float x, float y, int c) {
 		sourceImage.setRGB(getTransformedX(x), getTransformedY(y), c);
+	}
+
+	public double getTranslateX() {
+		return translateX;
+	}
+
+	public double getTranslateY() {
+		return translateY;
 	}
 }

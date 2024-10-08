@@ -13,6 +13,8 @@ import org.junit.jupiter.api.condition.DisabledIfEnvironmentVariable;
 
 import javax.swing.*;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /**
  * {@code PaperSettings} tests
  * @author Dan Royer
@@ -49,11 +51,20 @@ public class PaperSettingsPanelTest {
 		JPanelFixture panel = window.panel(PaperSettingsPanel.class.getSimpleName());
 		panel.requireVisible();
 		panel.panel("size").comboBox().selectItem(1);
-		assert(Double.parseDouble(panel.textBox("width.field").text()) == 1682.0);
-		assert(Double.parseDouble(panel.textBox("height.field").text()) == 2378.0);
+		//assert(Double.parseDouble(panel.textBox("width.field").text()) == 1682.0);
+		//assert(Double.parseDouble(panel.textBox("height.field").text()) == 2378.0);
+		assertEquals(1682.0, Double.parseDouble(panel.textBox("width.field").text()), "Width field does not match.");
+		assertEquals(2378.0, Double.parseDouble(panel.textBox("height.field").text()), "Height field does not match.");
+
 		panel.panel("size").comboBox().selectItem(1);
+		//assertEquals("Expected Size Name", panel.panel("size").comboBox().selectedItem());
+		assertEquals("4A0 (1682 x 2378)", panel.panel("size").comboBox().selectedItem());
+
 		panel.panel("landscape").checkBox().click();
-		assert(Double.parseDouble(panel.textBox("width.field").text()) == 2378.0);
-		assert(Double.parseDouble(panel.textBox("height.field").text()) == 1682.0);
+		//assert(Double.parseDouble(panel.textBox("width.field").text()) == 2378.0);
+		//assert(Double.parseDouble(panel.textBox("height.field").text()) == 1682.0);
+		assertEquals(2378.0, Double.parseDouble(panel.textBox("width.field").text()), "Width mismatch");
+		assertEquals(1682.0, Double.parseDouble(panel.textBox("height.field").text()), "Height mismatch");
+
 	}
 }
