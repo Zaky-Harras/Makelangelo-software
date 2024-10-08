@@ -114,5 +114,14 @@ DELETE **Converter_FlowField_Test**
 - comme dans : testGetTransformedXandY()
 - Pour le moment, on couvre 70% de la fonction. Faut passer à autre chose.
 
-## [Converter_Boxxy.java](..%2Fsrc%2Fmain%2Fjava%2Fcom%2Fmarginallyclever%2Fmakelangelo%2Fmakeart%2Fimageconverter%2FConverter_Boxxy.java)
-- Création fichier 
+## Tentative de sim du projet global
+- Création de la classe [SimTest.java](..%2Fsrc%2Ftest%2Fjava%2Fcom%2Fmarginallyclever%2FSimTest.java) pour pouvoir faire des tests plsu flexibles.
+- ...... **EPIC FAIL LOL, jme suis totalement mélangé**
+
+## Je reprend depuis le début
+Je m'intéresse au répertoire [imageconverter](..%2Fsrc%2Fmain%2Fjava%2Fcom%2Fmarginallyclever%2Fmakelangelo%2Fmakeart%2Fimageconverter) pcq c'est cool en vrai, jsp
+1. Test de conversion de base
+   - On va donc tester [ImageConverter.java](..%2Fsrc%2Fmain%2Fjava%2Fcom%2Fmarginallyclever%2Fmakelangelo%2Fmakeart%2Fimageconverter%2FImageConverter.java)
+   - On crée la classe **ImageConverter_Test**
+   - Puis, on crée une classe **ImplTestImgConv**, car **ImageConverter** est abstraite.
+   - On ajoute jogl dans **pom.xml** ligne .. turns out que yé djà là.
