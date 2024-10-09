@@ -17,6 +17,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+//VRM trop long et compliqué
 public class ImageConverter_Test {
     private ImplTestImgConv imageConverter;
     private File inputImage;
@@ -32,7 +33,7 @@ public class ImageConverter_Test {
         //JSP quelle image prendre
         inputImage = new File("src/test/resources/test.png");
         outputImage = new File("src/test/resources/output.gcode");
-        paper = new Paper(); // Assure-toi que le constructeur est correct, ou ajuste avec des paramètres si nécessaire
+        paper = new Paper();
         //img = new TransformedImage(inputImage);
         // Charger le fichier image en tant que BufferedImage sinon ca marche pas
         try {

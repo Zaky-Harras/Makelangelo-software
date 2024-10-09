@@ -11,6 +11,7 @@ public class TransformedImage_Test {
     int w = 100;
     int h = 100;
     double d = 0.01;
+    //flemme de faire le reste
 
     @Test
     public void testConstructorInitialization() {
@@ -55,12 +56,11 @@ public class TransformedImage_Test {
         // Échantillonnage à l'extérieur de l'image
         double result2 = transformedImage.sample(150, 150, 10, 10);
         // Adaptez cette assertion en fonction de la logique de `sample`
-        assertEquals(0.0, result2, "La valeur de l'échantillonnage devrait être nulle à l'extérieur.");
+        assertEquals(0.0, result2, "La valeur de l'échantillonnage devrait être nulle en déhors.");
 
         // Échantillonnage avec des valeurs négatives
         double result3 = transformedImage.sample(-10, -10, 5, 5);
-        // Adaptez cette assertion selon le comportement attendu
-        assertEquals(0.0, result3, "La valeur de l'échantillonnage devrait être nulle en dehors de l'image.");
+        assertEquals(0.0, result3, "La valeur de l'échantillonnage devrait être nulle en déhors.");
     }
 
     @Test
@@ -81,7 +81,7 @@ public class TransformedImage_Test {
 
     @Test
     public void testSetScale() {
-        BufferedImage testImage = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
+        BufferedImage testImage = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
         TransformedImage transformedImage = new TransformedImage(testImage);
         transformedImage.setScale(2.0f, 3.0f);
         assertEquals(2.0f, transformedImage.getScaleX(), 0.01);
@@ -95,7 +95,8 @@ public class TransformedImage_Test {
         //On décide du scale
         transformedImage.setScale(1.0f, 1.0f);
 
-        //Calculs
+        //Calculs pour vérifier si les calculs calculent comme il faut.
+        //Je fais pu ca pour les autres.
         int x = 10;
         int y = 10;
         double transformedX = transformedImage.getTransformedX(x);

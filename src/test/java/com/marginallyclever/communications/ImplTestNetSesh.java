@@ -32,7 +32,6 @@ public class ImplTestNetSesh extends NetworkSession {
 
     @Override
     public void sendMessage(String msg) throws Exception {
-        // Logique fictive
         System.out.println("Message sent: " + msg);
     }
 }

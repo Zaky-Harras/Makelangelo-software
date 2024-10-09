@@ -1,7 +1,7 @@
 # Zaky-Laurent Rapport
 
 ## Informations
-Nous avons choisi le projet Makelangelo. \
+Nous avons choisi le projet Makelangelo. 
 
 ### Répertoires
 Malgré la structure complexe, voici les répertoires importants  
