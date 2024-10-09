@@ -88,3 +88,9 @@ On s'intéresse au répertoire [imageconverter](..%2Fsrc%2Fmain%2Fjava%2Fcom%2Fm
    dans le répertoire *[src/test/java/com/marginallyclever/makelangelo/makeart/imageconverter](..%2Fsrc%2Ftest%2Fjava%2Fcom%2Fmarginallyclever%2Fmakelangelo%2Fmakeart%2Fimageconverter)*
 3. **ImageConverter_Test** est abstraite, alors on crée une classe **[ImplTestImgConv.java](..%2Fsrc%2Ftest%2Fjava%2Fcom%2Fmarginallyclever%2Fmakelangelo%2Fmakeart%2Fimageconverter%2FImplTestImgConv.java)** 
    pour l'implémenter.
+
+### [ImageFilter.java](..%2Fsrc%2Fmain%2Fjava%2Fcom%2Fmarginallyclever%2Fmakelangelo%2Fmakeart%2Fimagefilter%2FImageFilter.java)
+Similairement, on s'intéresse à la classe ImageFilter, qui n'a, initialement, aucune couverture.
+1. On crée la class **[ImageFilterTest.java](..%2Fsrc%2Ftest%2Fjava%2Fcom%2Fmarginallyclever%2Fmakelangelo%2Fmakeart%2Fimagefilter%2FImageFilterTest.java)**
+   dans le répertoire *[src/test/java/com/marginallyclever/makelangelo/makeart/imagefilter](..%2Fsrc%2Ftest%2Fjava%2Fcom%2Fmarginallyclever%2Fmakelangelo%2Fmakeart%2Fimagefilter)*
+2. On crée une méthode de test pour chaque methode de la class en suivant le pattern AAA.
