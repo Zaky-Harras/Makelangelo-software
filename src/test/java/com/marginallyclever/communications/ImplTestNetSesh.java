@@ -1,5 +1,16 @@
 package com.marginallyclever.communications;
 
+//On veut instancier la classe abstraite avec ses méthodes abstraites :
+/*
+public abstract void closeConnection();
+
+	public abstract void openConnection(String connectionName) throws Exception;
+
+	public abstract boolean isOpen();
+
+	public abstract void sendMessage(String msg) throws Exception;
+*/
+//Pour ensuite pouvoir tout tester avec la classe NetworkSession_Test.
 public class ImplTestNetSesh extends NetworkSession {
     private boolean open = false;
 
