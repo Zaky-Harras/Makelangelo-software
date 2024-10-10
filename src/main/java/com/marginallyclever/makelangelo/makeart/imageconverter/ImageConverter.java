@@ -24,7 +24,13 @@ import java.util.List;
 public abstract class ImageConverter {
 	private static final Logger logger = LoggerFactory.getLogger(ImageConverter.class);
 	protected TransformedImage myImage;
+	public TransformedImage getImage() {
+		return myImage;
+	}
 	protected Paper myPaper;
+	public Paper getPaper() {
+		return myPaper;
+	}
 	public Turtle turtle = new Turtle();
 
 	// for previewing the image
