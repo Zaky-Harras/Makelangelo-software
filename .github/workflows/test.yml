@@ -7,6 +7,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        jvm-flags:
+          - "Xms128m"
+          - "Xmx1g"
+          - "-XX:+UseG1GC"
+          - "-XX:+PrintGCDetails"
+          
     steps:
     - uses: actions/checkout@v4
 
