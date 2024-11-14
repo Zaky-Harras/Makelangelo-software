@@ -3,7 +3,7 @@
 ## Informations
 Projet: Makelangelo \
 Équipe: Zaky Harras / Laurent Bouchard \
-Nombre de cafés bu: 12 (Nous vous inquitez pas, la moitié était décafféinée)
+Nombre de cafés bu: 12 (Ne vous inquitez pas, la moitié était décafféinée)
 
 ### Répertoires
 Voici les répertoires importants
@@ -25,4 +25,4 @@ Ajout du code suivant sous la ligne 9 du fichier test.yml: \
 | XX:+PrintGCDetails    | Crée des logs de l'activité du ramasse-miette      | Les logs crées par ce flag permettent d'avoir plusieurs information par rapport au ramasse-miette, comme le nombre de fois que le ramasse-miette s'active et le temps pris par le ramasse-miette. Ainsi, cela nous permet de comparer les perfomences de différents ramasse-miette et de mieux optimiser |
 | XX:+UseCompressedOops | Permet la compression de l'encodage des pointeurs  | En compressant l'encodage des pointeurs, la JVM utilise moins de mémoire. C'est un optimization de l'espace.                                                                                                                                                                                             |
 
-Note*: Nous considéront ces deux flags comme de types différents, car, bien qu'ils affectent tous les deux la mémoire du heap, ils ont des intérêts très différents. En effet, Xmx donne une limite de mémoire afin de forcer le programmeur à utiliser des algorithmes et des bases de données qui sont raisonnable en espace, alors que Xms est une option d'optimisation en terme de temps.
+Note*: Nous considérons ces deux flags comme de types différents, car, bien qu'ils affectent tous les deux la mémoire du heap, ils ont des intérêts très différents. En effet, Xmx donne une limite de mémoire afin de forcer le programmeur à utiliser des algorithmes et des bases de données qui sont raisonnable en espace, alors que Xms est une option d'optimisation en terme de temps.
